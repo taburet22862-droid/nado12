@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио учителя | Аристархова Елена Борисовна</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+            --text-color: #333333;
+            --text-light: #666666;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Open Sans', sans-serif; color: var(--text-color); line-height: 1.6; background: var(--white); }
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--primary-color); }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        .section-title { text-align: center; font-size: 2.2rem; margin-bottom: 50px; position: relative; }
+        .section-title::after { content: ''; display: block; width: 60px; height: 4px; background: var(--accent-color); margin: 15px auto 0; border-radius: 2px; }
+
+        header { background: linear-gradient(135deg, var(--primary-color) 0%, #1a252f 100%); color: var(--white); padding: 100px 0; text-align: center; }
+        .hero-content { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+        .avatar { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 5px solid rgba(255,255,255,0.2); box-shadow: 0 10px 30px rgba(0,0,0,0.3); background: #ccc; display: flex; align-items: center; justify-content: center; font-size: 4rem; color: var(--primary-color); overflow: hidden; }
+        .avatar img { width: 100%; height: 100%; object-fit: cover; }
+        .hero-content h1 { color: var(--white); font-size: 2.8rem; margin-bottom: 10px; }
+        .hero-content .subtitle { font-size: 1.2rem; opacity: 0.9; font-weight: 400; margin-bottom: 20px; }
+        .social-links { display: flex; gap: 15px; }
+        .social-links a { display: inline-flex; align-items: center; justify-content: center; width: 45px; height: 45px; background: rgba(255,255,255,0.1); border-radius: 50%; transition: background 0.3s; color: var(--white); font-size: 1.2rem; }
+        .social-links a:hover { background: var(--accent-color); }
+
+        #about { padding: 80px 0; background: var(--white); }
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .about-text p { margin-bottom: 20px; font-size: 1.1rem; color: var(--text-light); }
+        .about-text strong { color: var(--primary-color); }
+        .info-list li { margin-bottom: 10px; font-size: 1rem; display: flex; align-items: center; }
+        .info-list i { color: var(--accent-color); width: 25px; margin-right: 10px; }
+
+        #experience { padding: 80px 0; background: var(--light-bg); }
+        .timeline { position: relative; max-width: 800px; margin: 0 auto; }
+        .timeline::after { content: ''; position: absolute; width: 2px; background: #e0e0e0; top: 0; bottom: 0; left: 50%; margin-left: -1px; }
+        .timeline-item { padding: 10px 40px; position: relative; width: 50%; }
+        .timeline-item.left { left: 0; }
+        .timeline-item.right { left: 50%; }
+        .timeline-item::after { content: ''; position: absolute; width: 20px; height: 20px; right: -10px; background: var(--white); border: 4px solid var(--accent-color); top: 15px; border-radius: 50%; z-index: 1; }
+        .timeline-item.right::after { left: -10px; }
+        .timeline-content { padding: 20px; background: var(--white); border-radius: 6px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .timeline-content h3 { font-size: 1.2rem; margin-bottom: 5px; }
+        .timeline-content .date { font-weight: 600; color: var(--accent-color); font-size: 0.9rem; margin-bottom: 10px; display: block; }
+        .timeline-content p { color: var(--text-light); font-size: 0.95rem; }
+
+        #achievements { padding: 80px 0; background: var(--white); }
+        .achievements-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .achievement-card { background: var(--light-bg); padding: 30px; border-radius: 8px; text-align: center; transition: transform 0.3s, box-shadow 0.3s; border-bottom: 3px solid transparent; }
+        .achievement-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); border-bottom-color: var(--accent-color); }
+        .achievement-icon { font-size: 3rem; color: var(--accent-color); margin-bottom: 20px; }
+        .achievement-card h3 { font-size: 1.3rem; margin-bottom: 10px; }
+        .achievement-card p { color: var(--text-light); font-size: 0.95rem; }
+
+        #methodology { padding: 80px 0; background: var(--primary-color); color: var(--white); }
+        #methodology .section-title { color: var(--white); }
+        .methodology-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .method-card { background: rgba(255,255,255,0.05); padding: 30px; border-radius: 8px; border-left: 4px solid var(--accent-color); }
+        .method-card h3 { color: var(--white); margin-bottom: 15px; font-size: 1.3rem; }
+        .method-card p { opacity: 0.8; font-size: 0.95rem; }
+
+        #contact { padding: 80px 0; background: var(--light-bg); }
+        .contact-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+        .contact-info { display: flex; flex-direction: column; gap: 20px; }
+        .contact-item { display: flex; align-items: center; gap: 15px; font-size: 1.1rem; }
+        .contact-item i { width: 40px; height: 40px; background: var(--white); color: var(--accent-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+
+        .contact-form input,
+        .contact-form textarea { width: 100%; padding: 12px 15px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 6px; font-family: inherit; font-size: 1rem; outline: none; transition: border-color 0.3s; }
+        .contact-form input:focus,
+        .contact-form textarea:focus { border-color: var(--accent-color); }
+        .btn { display: inline-block; padding: 12px 30px; background: var(--accent-color); color: var(--white); border: none; border-radius: 6px; font-family: 'Montserrat', sans-serif; font-weight: 600; cursor: pointer; transition: background 0.3s; }
+        .btn:hover { background: #2980b9; }
+
+        footer { background: var(--primary-color); color: rgba(255,255,255,0.7); text-align: center; padding: 30px 0; font-size: 0.9rem; }
+
+        @media (max-width: 768px) {
+            .about-grid, .contact-wrapper { grid-template-columns: 1fr; }
+            .hero-content h1 { font-size: 2rem; }
+            .timeline::after { left: 31px; }
+            .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
+            .timeline-item.right { left: 0; }
+            .timeline-item::after { left: 21px; right: auto; }
+            .timeline-item.right::after { left: 21px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ШАПКА -->
+    <header>
+        <div class="container hero-content">
+            <!-- ЗАМЕНИТЕ ЭТОТ БЛОК НА СВОЁ ФОТО:
+                 <div class="avatar"><img src="photo.jpg" alt="Елена Борисовна"></div>
+                 Файл photo.jpg положите рядом с этим html-файлом -->
+            <div class="avatar">
+                <i class="fas fa-user-tie"></i>
+            </div>
+            <h1>Аристархова Елена Борисовна</h1>
+            <p class="subtitle">Учитель русского языка и литературы | Высшая категория</p>
+            <div class="social-links">
+                <!-- Вставьте свои ссылки вместо # -->
+                <a href="#" target="_blank" title="Telegram"><i class="fab fa-telegram-plane"></i></a>
+                <a href="#" target="_blank" title="VK"><i class="fab fa-vk"></i></a>
+                <a href="#" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="mailto:aristarr@yandex.ru" title="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- О СЕБЕ -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">Обо мне</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>Здравствуйте! Меня зовут <strong>Елена Борисовна</strong>. Я учитель русского языка и литературы с <strong>10-летним стажем</strong> работы в школе. Моё педагогическое кредо — «Учить не мыслям, а мыслить».</p>
+                    <p>Я верю, что каждый ребёнок уникален и талантлив. Моя задача — помочь раскрыть этот потенциал, привить любовь к родному слову и научить критически мыслить. На моих уроках мы не просто изучаем правила, а учимся понимать красоту и глубину литературы.</p>
+                    <p>Помимо преподавания, я являюсь классным руководителем, руководителем школьного театрального кружка и активно участвую в методической работе района.</p>
+                </div>
+                <div>
+                    <ul class="info-list">
+                        <li><i class="fas fa-graduation-cap"></i> <strong>Образование:</strong> МПГУ, филологический факультет</li>
+                        <li><i class="fas fa-briefcase"></i> <strong>Стаж:</strong> 10 лет</li>
+                        <li><i class="fas fa-school"></i> <strong>Место работы:</strong> МБОУ «Гимназия №45»</li>
+                        <li><i class="fas fa-award"></i> <strong>Категория:</strong> Высшая квалификационная</li>
+                        <li><i class="fas fa-book-open"></i> <strong>Курсы:</strong> Современные методики преподавания по ФГОС</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ОПЫТ -->
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Образование и опыт</h2>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>МБОУ «Гимназия №45»</h3>
+                        <span class="date">2016 — Настоящее время</span>
+                        <p>Учитель русского языка и литературы. Подготовка к ОГЭ и ЕГЭ, классное руководство, руководство театральным кружком.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>МБОУ СОШ №12</h3>
+                        <span class="date">2014 — 2016</span>
+                        <p>Учитель русского языка и литературы. Работа с 9–11 классами, внедрение интерактивных методов обучения.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>Московский педагогический государственный университет</h3>
+                        <span class="date">2009 — 2014</span>
+                        <p>Специальность «Филология». Квалификация: учитель русского языка и литературы.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ДОСТИЖЕНИЯ -->
+    <section id="achievements">
+        <div class="container">
+            <h2 class="section-title">Мои достижения</h2>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <div class="achievement-icon"><i class="fas fa-trophy"></i></div>
+                    <h3>Победитель конкурса</h3>
+                    <p>«Учитель года — 2022» в районном этапе.</p>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon"><i class="fas fa-star"></i></div>
+                    <h3>Высокие результаты</h3>
+                    <p>Средний балл ЕГЭ по литературе моих учеников — 85+.</p>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon"><i class="fas fa-users"></i></div>
+                    <h3>Мои выпускники</h3>
+                    <p>Более 50 учеников успешно сдали ОГЭ и ЕГЭ по моим предметам.</p>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon"><i class="fas fa-medal"></i></div>
+                    <h3>Почётная грамота</h3>
+                    <p>Министерства образования РФ за вклад в развитие образования.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- МЕТОДИКИ -->
+    <section id="methodology">
+        <div class="container">
+            <h2 class="section-title">Мой подход</h2>
+            <div class="methodology-grid">
+                <div class="method-card">
+                    <h3><i class="fas fa-lightbulb"></i> Развитие критического мышления</h3>
+                    <p>Использую технологии проблемного обучения и дискуссии, чтобы научить детей анализировать текст, а не просто запоминать факты.</p>
+                </div>
+                <div class="method-card">
+                    <h3><i class="fas fa-laptop-code"></i> Цифровые технологии</h3>
+                    <p>Активно внедряю интерактивные платформы, онлайн-тесты и проектные методы работы с использованием ИКТ.</p>
+                </div>
+                <div class="method-card">
+                    <h3><i class="fas fa-theater-masks"></i> Театральная педагогика</h3>
+                    <p>Через школьный театр помогаю ученикам глубже понимать классические произведения и развивать ораторские навыки.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- КОНТАКТЫ -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Связаться со мной</h2>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>aristarr@yandex.ru</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+7 (999) 123-45-67</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Приём по записи: Пн–Пт, 15:00 – 17:00</span>
+                    </div>
+                </div>
+                <!-- Форма-заглушка: при нажатии показывает сообщение.
+                     Чтобы форма реально отправляла письма, подключите сервис (Formspree, Getform и т.п.) -->
+                <form class="contact-form" onsubmit="event.preventDefault(); alert('Спасибо! Сообщение отправлено (демо).'); this.reset();">
+                    <input type="text" placeholder="Ваше имя" required>
+                    <input type="email" placeholder="Ваш Email" required>
+                    <textarea rows="5" placeholder="Ваше сообщение" required></textarea>
+                    <button type="submit" class="btn">Отправить сообщение</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ПОДВАЛ -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Аристархова Елена Борисовна. Все права защищены.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
